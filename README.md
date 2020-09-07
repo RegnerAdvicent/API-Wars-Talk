@@ -1,3 +1,3 @@
-# gRPC-Protobuf-Talk
+# API-Wars-Talk
 
-[Slides](https://gitpitch.com/RegnerAdvicent/gRPC-Protobuf-Talk)
+[Slides](https://gitpitch.com/RegnerAdvicent/API-Wars-Talk)
