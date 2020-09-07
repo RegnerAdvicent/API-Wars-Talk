@@ -30,8 +30,8 @@
 ---
 
 #### gRPC is an Open Source project based off of Google's Stubby framework
-##### (Stubby being their RPC approach since 2001)
-#### i.e. Not a protocol, but a proprietary (yet open) messaging framework
+##### (Stubby being their RPC approach since 2001)<br>
+##### i.e. Not a protocol, but a proprietary (yet open) messaging framework
 
 ---
 
@@ -47,8 +47,6 @@
 <li>Data Serialization</li>
 <li>Security/Authentication</li>
 <li>Language Interop</li>
-<li>Monitoring</li>
-<li>Debugging</li>
 </ul>
 
 ---
@@ -89,25 +87,12 @@
 <ul>
 <li>Create your IDL (.proto files)</li>
 <li>Generate your language objects from it (protoc tool)</li>
-<li>Drop them in your service implementation project (direct drop, package reference, etc.)</li>
+<li>Drop them in your service implementation project</li>
 </ul>
 
 ---
 
-### Basic IDL Example
-```protobuf
-syntax = “proto3”;
-
-message Person {
-  string name = 1;
-  int32 id = 2;
-  string email = 3;
-}
-```
-
----
-
-### More Complex Example
+### IDL Example
 ```protobuf
 syntax = “proto3”;
 
@@ -281,7 +266,7 @@ https://http2.golang.org/gophertiles
 ## I want to try gRPC but can't give up JSON/REST!
 
 <ul>
-<li>Ease Into Proto With JSON - shttps://developers.google.com/protocol-buffers/docs/proto3#json</li>
+<li>Ease Into Proto With JSON - https://developers.google.com/protocol-buffers/docs/proto3#json</li>
 <li>Ease Into gRPC With REST - https://github.com/grpc-ecosystem/grpc-gateway</li>
 </ul>
 
@@ -313,7 +298,6 @@ https://www.cncf.io/
 
 ---
 ## @color[#0CC1C8](Thank You!)
-<img src="assets/me.jpg" style="border:0" /><br />
 
 @snap[south span-50]
 @color[#0084b4](@fab[twitter]) @JohnDRegner
