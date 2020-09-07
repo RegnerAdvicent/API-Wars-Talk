@@ -1,5 +1,4 @@
 # @color[#0CC1C8](gRPC and Protocol Buffers)
-### Microservice Development
 
 ---
 
@@ -15,6 +14,24 @@
 @snap[east span-50]
 <img src="assets/me.jpg" height="600" />
 @snapend
+
+---
+
+## What is gRPC?
+<ul>
+<li>g = Google</li>
+<li>RPC = Remote Procedure Call</li>
+</ul>
+
+---
+
+### ...No but seriously tell me what gRPC is
+
+---
+
+#### gRPC is an Open Source project based off of Google's Stubby framework
+##### (Stubby being their RPC approach since 2001)
+#### i.e. Not a protocol, but a proprietary (yet open) messaging framework
 
 ---
 
@@ -36,38 +53,15 @@
 
 ---
 
-### REST Challenges
+## gRPC Approach
+
 <ul>
-<li>Loose typing with JSON</li>
-<li>OpenAPI brings structure, as long as you stick to deliberate choices</li>
-<li>REST purity...is it REST, or just JSON over HTTP?</li>
-<li>Resource-based...i.e. noun-based</li>
+<li>Performance</li>
+<li>Strong typing with contract-first development</li>
+<li>Deliberate generation of client/server elements</li>
+<li>Streaming, esp. for real-time systems</li>
+<li>Continued growth of support, including for latest .Net Core Previews</li>
 </ul>
-
----
-
-<img src="assets/grpc-logo.png" />
-
----
-
-## What is gRPC?
-<ul>
-<li>g = Google</li>
-<li>RPC = Remote Procedure Call</li>
-</ul>
-
----
-
-### ...No but seriously tell me what gRPC is
-
----
-
-#### gRPC is an Open Source project based off of Google's Stubby framework
-##### (Stubby being their RPC approach since 2001)
-
----
-
-<img src="assets/borg.png" />
 
 ---
 
@@ -113,19 +107,6 @@ message Person {
 
 ---
 
-### Enum Example
-```protobuf
-syntax = “proto3”;
-
-enum PhoneType {
-  MOBILE = 0;
-  HOME = 1;
-  WORK = 2;
-}
-```
-
----
-
 ### More Complex Example
 ```protobuf
 syntax = “proto3”;
@@ -144,32 +125,6 @@ message Person {
   repeated PhoneNumber phone = 4;
 }
 ```
-
----
-
-@snap[north span-100]
-### Protoc Process
-@snapend
-
-@snap[west span-33]
-<div class="text-center">
-Person.proto<br>
-@fa[file-alt fa-5x]
-</div>
-@snapend
-
-@snap[midpoint span-33]
-<div class="text-center">
-@fa[long-arrow-alt-right fa-3x]
-</div>
-@snapend
-
-@snap[east span-33]
-<div class="text-center">
-Person.cs<br>
-@fa[file-alt fa-5x]
-</div>
-@snapend
 
 ---
 
@@ -254,17 +209,6 @@ message Person {
 
 ---
 
-## Explore Real-Life Protos from Pokemon Go
-https://github.com/Furtif/POGOProtos
-
----?code=examples/PlayerData.proto&lang=protobuf
-
-@[2](Package namespacing! Very useful)
-@[17-20](Some basic fields...and gaps from deprecated/removed fields!)
-@[22](Applying namespacing with type references)
-
----
-
 @snap[north span-66]
 ## Language Support!
 @snapend
@@ -296,16 +240,7 @@ Same IDL files generate compatible stubs and skeletons in supported languages!
 
 ---
 
-### Live Demo Incoming!
-[//]: # "example goes here, maybe with diagram?"
-
----
-
-## Let's look at HTTP/2
-
----
-
-### HTTP/2
+### Let's look at HTTP/2 Support
 Published as RFC 7540 in May 2015.
 <ul>
 <li>Multiplexing</li>
@@ -313,7 +248,7 @@ Published as RFC 7540 in May 2015.
 <li>HTTPS*</li>
 </ul>
 
----
++++
 
 ### HTTP/2 multiplexing example
 https://http2.golang.org/gophertiles
@@ -322,34 +257,33 @@ https://http2.golang.org/gophertiles
 
 ---
 
-## Why should I try gRPC?
+## Drawbacks
 
 <ul>
-<li>SPEED</li>
-<li>Strong typing with contract-first development</li>
-<li>Deliberate generation of client/server elements</li>
-<li>Streaming, esp. for real-time systems</li>
-<li>Continued growth of support, including for latest .Net Core Previews</li>
+<li>Higher learning curve than REST</li>
+<li>Less client discovery than REST or GraphQL</li>
+<li>Obfuscated payload</li>
 </ul>
 
 ---
 
-@snap[north span-100]
-### I want to try gRPC but can't give up JSON/REST!
-@snapend
+## Why should I try gRPC?
 
-@snap[south-west span-40]
-Ease Into Protos<br>
-With JSON
-https://developers.google.com/protocol-buffers/docs/proto3#json
-@snapend
+<ul>
+<li>Performance</li>
+<li>Strong typing with contract-first development</li>
+<li>Deliberate generation of client/server elements</li>
+<li>@css[text-bold](Internal APIs)</li>
+</ul>
 
-@snap[south-east span-40]
-Ease Into gRPC<br>
-With REST<br>
-Reverse Proxies
-https://github.com/grpc-ecosystem/grpc-gateway
-@snapend
+---
+
+## I want to try gRPC but can't give up JSON/REST!
+
+<ul>
+<li>Ease Into Proto With JSON - shttps://developers.google.com/protocol-buffers/docs/proto3#json</li>
+<li>Ease Into gRPC With REST - https://github.com/grpc-ecosystem/grpc-gateway</li>
+</ul>
 
 ---
 ## Resources
