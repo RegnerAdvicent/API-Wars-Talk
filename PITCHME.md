@@ -54,7 +54,7 @@ message Feature {
 ---
 
 ### Polyglot Support!
-<img src="assets/grpc-diagram-1.png" />
+<img src="assets/grpc-diagram-1.png" height="500" />
 
 +++
 
@@ -116,7 +116,7 @@ message Feature {
       <li>Performance at scale</li>
       <li>Low-power operation</li>
       <li>Limited discovery needed</li>
-      <li>Enforced specifications/standards across tech stacks</li>
+      <li>Enforced specs/standards across tech stacks</li>
     </ul>
   </li>
 </ul>
