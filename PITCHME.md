@@ -1,4 +1,4 @@
-<img src="assets/api-wars.png" height="500" />
+![height=300, alt=API Wars](assets/api-wars.png)
 # @color[#0CC1C8](gRPC)
 
 ---
@@ -14,7 +14,7 @@
 @snapend
 
 @snap[east span-50]
-<img src="assets/notme.jpg" height="600" />
+![height=600, alt=My Daughter](assets/notme.jpg)
 @snapend
 
 ---
