@@ -20,14 +20,7 @@
 
 ## What is gRPC?
 
-#### gRPC is an Open Source project based off of Google's Stubby framework
-##### (Stubby being their Remote Procedure Call (RPC) approach since 2001)
-
----
-
-## Microservices!
-##### Gotta love 'em.
-<img src="assets/microservice-spaghetti.png" />
+#### gRPC is an Open Source project based off of Google's Stubby Remote Procedure Call (RPC) framework
 
 ---
 
@@ -41,7 +34,7 @@
 
 ---
 
-## gRPC Approach
+## gRPC Benefits
 
 <ul>
   <li>Performance</li>
@@ -49,16 +42,6 @@
   <li>Deliberate generation of client/server elements</li>
   <li>Streaming, esp. for real-time systems, via HTTP/2</li>
   <li>Continued growth of support (.Net Core)</li>
-</ul>
-
----
-
-### Workflow
-
-<ul>
-  <li>Create your interface definition (.proto files)</li>
-  <li>Generate your language objects (protoc tool)</li>
-  <li>Drop that output in your service implementation project</li>
 </ul>
 
 ---
@@ -80,7 +63,7 @@ message Feature {
 
 ---
 
-## Polyglot Support!
+### Polyglot Support!
 <img src="assets/grpc-diagram-1.png" />
 
 +++
@@ -107,7 +90,7 @@ message Feature {
 
 ---
 
-## Drawbacks
+## gRPC Drawbacks
 
 <ul>
   <li>Less client discovery than REST or GraphQL</li>
@@ -129,7 +112,7 @@ message Feature {
 ## gRPC Use Cases
 
 <ul>
-  <li>@color[#0CC1C8](Internal APIs, IoT)
+  <li>@css[text-bold](@color[#0CC1C8](Internal APIs, IoT))
     <ul>
       <li>Performance at scale</li>
       <li>Limited discovery needed</li>
@@ -162,5 +145,6 @@ message Feature {
 ## @color[#0CC1C8](Thank You!)
 
 @snap[south span-50]
-@color[#0084b4](@fab[twitter]) @JohnDRegner
+@color[#0084b4](@fab[twitter]) @JohnDRegner<br>
+@color[#0077b5](@fab[linkedin])/johnregner
 @snapend

@@ -10,4 +10,4 @@ theme-override : assets/styles.css
 published: false
 code-line-numbers : true
 highlight: night
-footnote : "API Wars - gRPC and Protocol Buffers - John Regner"
+footnote : "API Wars: gRPC - John Regner"
