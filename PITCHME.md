@@ -55,7 +55,7 @@ message Feature {
 ---
 
 ### Polyglot Support!
-![height=500, alt=gRPC Implementation Diagram](assets/grpc-diagram-1.png")
+![height=500, alt=gRPC Implementation Diagram](assets/grpc-diagram-1.png)
 
 ---
 
@@ -101,7 +101,7 @@ message Feature {
 </ul>
 
 ---
-## Resources For Getting Started
+## Getting Started
 <ul>
   <li>https://github.com/grpc/grpc/tree/master/examples</li>
   <li>https://docs.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-3.1</li>
