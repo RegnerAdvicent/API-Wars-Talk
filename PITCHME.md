@@ -21,23 +21,11 @@
 
 ## What is gRPC?
 
-#### gRPC (as in "Google Remote Procedure Calls") is an Open Source project based off of Google's Stubby framework
+#### gRPC (as in "Google Remote Procedure Calls") is an Open Source project based off of Google's Stubby framework powered by the Protocol Buffer Interface Definition Language (IDL)
 
 ---
 
-## gRPC Benefits
-
-<ul>
-  <li>Performance</li>
-  <li>Code generation</li>
-  <li>Strict specification</li>
-  <li>Streaming</li>
-  <li>Continued growth of support (.NET Core)</li>
-</ul>
-
----
-
-## Service IDL Example
+## Protocol Buffer (Proto) Example
 ```protobuf
 service RouteGuide {
   rpc GetFeature(Point) returns (Feature);
@@ -56,6 +44,18 @@ message Feature {
 
 ### Polyglot Support!
 ![height=500, alt=gRPC Implementation Diagram](assets/grpc-diagram-1.png)
+
+---
+
+## gRPC Benefits
+
+<ul>
+  <li>Performance</li>
+  <li>Code generation</li>
+  <li>Strict specification</li>
+  <li>Streaming</li>
+  <li>Continued growth of support (.NET Core)</li>
+</ul>
 
 ---
 
