@@ -85,14 +85,14 @@ message Feature {
 <ul>
   <li>Less client discovery than REST or GraphQL
     <ul>
+      <li>Payloads not human readable</li>
       <li>Limited browser support</li>
-      <li>Obfuscated payload</li>
     </ul>
   </li>
   <li>Higher learning curve than REST
     <ul>
-      <li>Due to above points</li>
-      <li>Prevalance/communtiy support</li>
+      <li>See above points</li>
+      <li>Prevalance/scale of community support</li>
     </ul>  
   </li>
   <li>Ongoing .Net Core work (e.g. Azure App Services)</li>
@@ -114,9 +114,9 @@ message Feature {
   <li>@css[text-bold](@color[#0CC1C8](Internal APIs, IoT))
     <ul>
       <li>Performance at scale</li>
-      <li>Limited discovery needed</li>
       <li>Low-power operation</li>
-      <li>Shaped around functions (verbs) over resources (nouns)</li>
+      <li>Limited discovery needed</li>
+      <li>Enforced specifications/standards across tech stacks</li>
     </ul>
   </li>
 </ul>
