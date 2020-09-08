@@ -1,12 +1,13 @@
-# @color[#0CC1C8](gRPC and Protocol Buffers)
+# @color[#0CC1C8](gRPC)
 
 ---
 
 @snap[west span-50]
 ## Speaker
 <ul>
-<li>John Regner</li>
-<li>@color[#0084b4](@fab[twitter])@JohnDRegner</li>
+  <li>John Regner</li>
+  <li>@color[#0084b4](@fab[twitter])@JohnDRegner</li>
+  <li>@color[#0077b5](@fab[linkedin])johnregner</li>
 </ul>
 
 @snapend
@@ -20,9 +21,7 @@
 ## What is gRPC?
 
 #### gRPC is an Open Source project based off of Google's Stubby framework
-##### (Stubby being their Remote Procedure Call (RPC) approach since 2001)<br>
-##### i.e. Not a protocol, but a proprietary (yet open) messaging framework
-##### Based around usage of an Interface Definition Language (IDL) called Protocol Buffers
+##### (Stubby being their Remote Procedure Call (RPC) approach since 2001)
 
 ---
 
@@ -34,10 +33,10 @@
 
 ### Microservice Challenges
 <ul>
-<li>Network Speed</li>
-<li>Data Serialization</li>
-<li>Security/Authentication</li>
-<li>Language Interop</li>
+  <li>Network Speed</li>
+  <li>Data Serialization</li>
+  <li>Security/Authentication</li>
+  <li>Language Interop</li>
 </ul>
 
 ---
@@ -45,11 +44,11 @@
 ## gRPC Approach
 
 <ul>
-<li>Performance</li>
-<li>Strong typing with contract-first development</li>
-<li>Deliberate generation of client/server elements</li>
-<li>Streaming, esp. for real-time systems, via HTTP/2</li>
-<li>Continued growth of support, including for latest .Net Core</li>
+  <li>Performance</li>
+  <li>Strong typing with contract-first development</li>
+  <li>Deliberate generation of client/server elements</li>
+  <li>Streaming, esp. for real-time systems, via HTTP/2</li>
+  <li>Continued growth of support (.Net Core)</li>
 </ul>
 
 ---
@@ -57,30 +56,10 @@
 ### Workflow
 
 <ul>
-<li>Create your interface definition (.proto files)</li>
-<li>Generate your language objects (protoc tool)</li>
-<li>Drop that output in your service implementation project</li>
+  <li>Create your interface definition (.proto files)</li>
+  <li>Generate your language objects (protoc tool)</li>
+  <li>Drop that output in your service implementation project</li>
 </ul>
-
----
-
-### IDL Example
-```protobuf
-syntax = “proto3”;
-
-message Point {
-  int32 Latitude = 1;
-  int32 Longitude = 2;
-}
-message Feature {
-  string name = 1;
-  Point location = 2;
-}
-message Note {
-  Point location = 1;
-  string message = 2;
-}
-```
 
 ---
 
@@ -88,7 +67,6 @@ message Note {
 ```protobuf
 service RouteGuide {
   rpc GetFeature(Point) returns (Feature);
-  rpc RouteChat(stream Note) returns (stream Note);
 }
 message Point {
   int32 Latitude = 1;
@@ -98,46 +76,14 @@ message Feature {
   string name = 1;
   Point location = 2;
 }
-message Note {
-  Point location = 1;
-  string message = 2;
-}
 ```
 
 ---
 
-@snap[north span-100]
-### Protoc Process for gRPC Services
-@snapend
-
-@snap[west span-33]
-<div class="text-center">
-RouteGuide.proto<br>
-@fa[file-alt fa-5x]
-</div>
-@snapend
-
-@snap[midpoint span-33]
-<div class="text-center">
-@fa[long-arrow-alt-right fa-3x]
-</div>
-@snapend
-
-@snap[east span-33]
-<div class="text-center">
-RouteGuide.cs<br>
-RouteGuideGrpc.cs<br>
-@fa[file-alt fa-5x] @fa[file-alt fa-5x]
-</div>
-@snapend
-
----
-
-## How does polyglot support work?
-Same IDL files generate compatible stubs and skeletons in supported languages!
+## Polyglot Support!
 <img src="assets/grpc-diagram-1.png" />
 
----
++++
 
 @snap[north span-66]
 ## Language Support!
@@ -164,37 +110,41 @@ Same IDL files generate compatible stubs and skeletons in supported languages!
 ## Drawbacks
 
 <ul>
-<li>Higher learning curve than REST</li>
-<li>Less client discovery than REST or GraphQL</li>
-<li>Obfuscated payload</li>
-<li>Ongoing .Net Core work to support (e.g. Azure App Services)</li>
+  <li>Less client discovery than REST or GraphQL</li>
+  <li>Higher learning curve than REST</li>
+  <li>Obfuscated payload</li>
+  <li>Ongoing .Net Core work (e.g. Azure App Services)</li>
 </ul>
 
 +++
 
 ## Drawbacks Appendix
 <ul>
-<li>Workaround with gRPC-Web, but lacks bi-directional streaming support - https://devblogs.microsoft.com/aspnet/grpc-web-for-net-now-available/</li>
-<li>Azure App Service HTTP/2 support request - https://feedback.azure.com/forums/169385-web-apps/suggestions/40585333-grpc-support-in-azure-app-service</li>
+  <li>Workaround with gRPC-Web, but lacks bi-directional streaming support - https://devblogs.microsoft.com/aspnet/grpc-web-for-net-now-available/</li>
+  <li>Azure App Service HTTP/2 support request - https://feedback.azure.com/forums/169385-web-apps/suggestions/40585333-grpc-support-in-azure-app-service</li>
 </ul>
 
 ---
 
-## Why should I try gRPC?
+## gRPC Use Cases
 
 <ul>
-<li>Performance</li>
-<li>Strong typing with contract-first development</li>
-<li>Deliberate generation of client/server elements</li>
-<li>@css[text-bold](Internal APIs)</li>
+  <li>@color[#0CC1C8](Internal APIs, IoT)
+    <ul>
+      <li>Performance at scale</li>
+      <li>Limited discovery needed</li>
+      <li>Low-power operation</li>
+      <li>Shaped around functions (verbs) over resources (nouns)</li>
+    </ul>
+  </li>
 </ul>
 
 ---
 ## Resources For Getting Started
 <ul>
-<li>https://github.com/grpc/grpc/tree/master/examples</li>
-<li>https://docs.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-3.1</li>
-<li>https://grpc.io/docs/quickstart/csharp/</li>
+  <li>https://github.com/grpc/grpc/tree/master/examples</li>
+  <li>https://docs.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-3.1</li>
+  <li>https://grpc.io/docs/quickstart/csharp/</li>
 </ul>
 
 +++
@@ -202,10 +152,10 @@ Same IDL files generate compatible stubs and skeletons in supported languages!
 ## Appendix
 #### Case Studies and Further Reading
 <ul>
-<li>https://www.cncf.io/netflix-case-study/</li>
-<li>https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/</li>
-<li>https://medium.com/apis-and-digital-transformation/openapi-and-grpc-side-by-side-b6afb08f75ed</li>
-<li>Several Blog articles from https://grpc.io/</li>
+  <li>https://www.cncf.io/netflix-case-study/</li>
+  <li>https://blogs.dropbox.com/tech/2019/01/courier-dropbox-migration-to-grpc/</li>
+  <li>https://medium.com/apis-and-digital-transformation/openapi-and-grpc-side-by-side-b6afb08f75ed</li>
+  <li>Several Blog articles from https://grpc.io/</li>
 </ul>
 
 ---
