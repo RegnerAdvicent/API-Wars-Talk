@@ -1,4 +1,4 @@
-![height=300, alt=API Wars](assets/api-wars.png)
+![height=350, alt=API Wars](assets/api-wars.png)
 # @color[#0CC1C8](gRPC)
 
 ---
@@ -55,29 +55,7 @@ message Feature {
 ---
 
 ### Polyglot Support!
-<img src="assets/grpc-diagram-1.png" height="500" />
-
-+++
-
-@snap[north span-66]
-## Language Support!
-@snapend
-
-@snap[midpoint span-33]
-<img src="assets/net.png" />
-@snapend
-
-@snap[south-west span-33]
-<img src="assets/java.png" />
-@snapend
-
-@snap[south span-33]
-<img src="assets/golang.png" />
-@snapend
-
-@snap[south-east span-33]
-<img src="assets/nodejs.png" />
-@snapend
+![height=500, alt=gRPC Implementation Diagram](assets/grpc-diagram-1.png")
 
 ---
 
@@ -146,5 +124,5 @@ message Feature {
 
 @snap[south span-50]
 @color[#0084b4](@fab[twitter]) @JohnDRegner<br>
-@color[#0077b5](@fab[linkedin])/johnregner
+@color[#0077b5](@fab[linkedin]) /johnregner
 @snapend
