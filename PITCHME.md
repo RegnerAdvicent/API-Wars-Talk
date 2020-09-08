@@ -20,17 +20,7 @@
 
 ## What is gRPC?
 
-#### gRPC is an Open Source project based off of Google's Stubby Remote Procedure Call (RPC) framework
-
----
-
-### Microservice Challenges
-<ul>
-  <li>Network Speed</li>
-  <li>Data Serialization</li>
-  <li>Security/Authentication</li>
-  <li>Language Interop</li>
-</ul>
+#### gRPC (as in "Google Remote Procedure Calls") is an Open Source project based off of Google's Stubby framework
 
 ---
 
@@ -38,10 +28,10 @@
 
 <ul>
   <li>Performance</li>
-  <li>Strong typing with contract-first development</li>
-  <li>Deliberate generation of client/server elements</li>
-  <li>Streaming, esp. for real-time systems, via HTTP/2</li>
-  <li>Continued growth of support (.Net Core)</li>
+  <li>Code generation</li>
+  <li>Strict specification</li>
+  <li>Streaming</li>
+  <li>Continued growth of support (.NET Core)</li>
 </ul>
 
 ---
@@ -93,9 +83,18 @@ message Feature {
 ## gRPC Drawbacks
 
 <ul>
-  <li>Less client discovery than REST or GraphQL</li>
-  <li>Higher learning curve than REST</li>
-  <li>Obfuscated payload</li>
+  <li>Less client discovery than REST or GraphQL
+    <ul>
+      <li>Limited browser support</li>
+      <li>Obfuscated payload</li>
+    </ul>
+  </li>
+  <li>Higher learning curve than REST
+    <ul>
+      <li>Due to above points</li>
+      <li>Prevalance/communtiy support</li>
+    </ul>  
+  </li>
   <li>Ongoing .Net Core work (e.g. Azure App Services)</li>
 </ul>
 
