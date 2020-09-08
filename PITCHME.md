@@ -18,20 +18,11 @@
 ---
 
 ## What is gRPC?
-<ul>
-<li>g = Google</li>
-<li>RPC = Remote Procedure Call</li>
-</ul>
-
----
-
-### ...No but seriously tell me what gRPC is
-
----
 
 #### gRPC is an Open Source project based off of Google's Stubby framework
-##### (Stubby being their RPC approach since 2001)<br>
+##### (Stubby being their Remote Procedure Call (RPC) approach since 2001)<br>
 ##### i.e. Not a protocol, but a proprietary (yet open) messaging framework
+##### Based around usage of an Interface Definition Language (IDL) called Protocol Buffers
 
 ---
 
@@ -57,37 +48,18 @@
 <li>Performance</li>
 <li>Strong typing with contract-first development</li>
 <li>Deliberate generation of client/server elements</li>
-<li>Streaming, esp. for real-time systems</li>
-<li>Continued growth of support, including for latest .Net Core Previews</li>
+<li>Streaming, esp. for real-time systems, via HTTP/2</li>
+<li>Continued growth of support, including for latest .Net Core</li>
 </ul>
 
 ---
 
-### Components of gRPC
-<ul>
-<li>Protocol Buffers</li>
-<li>Service Stubs and Polyglot Support</li>
-<li>HTTP/2</li>
-</ul>
-
----
-
-## Protocol Buffers
+### Workflow
 
 <ul>
-<li>Interface Definition Language (IDL)</li>
-<li>Data Model</li>
-<li>Wire Format</li>
-</ul>
-
----
-
-### Proto Workflow
-
-<ul>
-<li>Create your IDL (.proto files)</li>
-<li>Generate your language objects from it (protoc tool)</li>
-<li>Drop them in your service implementation project</li>
+<li>Create your interface definition (.proto files)</li>
+<li>Generate your language objects (protoc tool)</li>
+<li>Drop that output in your service implementation project</li>
 </ul>
 
 ---
@@ -96,37 +68,23 @@
 ```protobuf
 syntax = “proto3”;
 
-import "PhoneType.proto";
-
-message Person {
+message Point {
+  int32 Latitude = 1;
+  int32 Longitude = 2;
+}
+message Feature {
   string name = 1;
-  int32 id = 2;
-  string email = 3;
-
-  message PhoneNumber {
-    string number = 1;
-    PhoneType type = 2;
-  }
-  repeated PhoneNumber phone = 4;
+  Point location = 2;
+}
+message Note {
+  Point location = 1;
+  string message = 2;
 }
 ```
 
 ---
 
-## Service Definition
-
-<ul>
-<li>Service method/signature definition</li>
-<li>Code skeleton/stub generation</li>
-</ul>
-
----
-
-<img src="assets/grpc-diagram-1.png" />
-
----
-
-## Service IDL
+## Service IDL Example
 ```protobuf
 service RouteGuide {
   rpc GetFeature(Point) returns (Feature);
@@ -175,22 +133,9 @@ RouteGuideGrpc.cs<br>
 
 ---
 
-## Proto Over the Wire
-```protobuf
-message Person {
-  string name = 1;
-  int32 id = 2;
-  string email = 3;
-}
-```
-
-```protobuf
-// name = "testing"...
-// 12 07 74 65 73 74 69 6e 67
-```
-[//]: # "Field number as key"
-[//]: # "Followed by value"
-[//]: # "If length-delimited, length preceded value"
+## How does polyglot support work?
+Same IDL files generate compatible stubs and skeletons in supported languages!
+<img src="assets/grpc-diagram-1.png" />
 
 ---
 
@@ -216,38 +161,21 @@ message Person {
 
 ---
 
-## How does polyglot support work?
-Same IDL files generate compatible stubs and skeletons in supported languages!
-
----
-
-<img src="https://grpc.io/img/grpc-core-stack.svg" />
-
----
-
-### Let's look at HTTP/2 Support
-Published as RFC 7540 in May 2015.
-<ul>
-<li>Multiplexing</li>
-<li>Bidirectional Streaming</li>
-<li>HTTPS*</li>
-</ul>
-
-+++
-
-### HTTP/2 multiplexing example
-https://http2.golang.org/gophertiles
-
-[//]: # "todo: more http/2 or streaming stuff?"
-
----
-
 ## Drawbacks
 
 <ul>
 <li>Higher learning curve than REST</li>
 <li>Less client discovery than REST or GraphQL</li>
 <li>Obfuscated payload</li>
+<li>Ongoing .Net Core work to support (e.g. Azure App Services)</li>
+</ul>
+
++++
+
+## Drawbacks Appendix
+<ul>
+<li>Workaround with gRPC-Web, but lacks bi-directional streaming support - https://devblogs.microsoft.com/aspnet/grpc-web-for-net-now-available/</li>
+<li>Azure App Service HTTP/2 support request - https://feedback.azure.com/forums/169385-web-apps/suggestions/40585333-grpc-support-in-azure-app-service</li>
 </ul>
 
 ---
@@ -262,20 +190,11 @@ https://http2.golang.org/gophertiles
 </ul>
 
 ---
-
-## I want to try gRPC but can't give up JSON/REST!
-
-<ul>
-<li>Ease Into Proto With JSON - https://developers.google.com/protocol-buffers/docs/proto3#json</li>
-<li>Ease Into gRPC With REST - https://github.com/grpc-ecosystem/grpc-gateway</li>
-</ul>
-
----
-## Resources
+## Resources For Getting Started
 <ul>
 <li>https://github.com/grpc/grpc/tree/master/examples</li>
+<li>https://docs.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-3.1</li>
 <li>https://grpc.io/docs/quickstart/csharp/</li>
-<li>https://docs.microsoft.com/en-us/aspnet/core/grpc/aspnetcore</li>
 </ul>
 
 +++
@@ -288,13 +207,6 @@ https://http2.golang.org/gophertiles
 <li>https://medium.com/apis-and-digital-transformation/openapi-and-grpc-side-by-side-b6afb08f75ed</li>
 <li>Several Blog articles from https://grpc.io/</li>
 </ul>
-
-+++
-
-## Appendix
-### Cloud Native Computing Foundation
-Open Source Software Foundation for cloud native projects and tools<br />
-https://www.cncf.io/ 
 
 ---
 ## @color[#0CC1C8](Thank You!)
