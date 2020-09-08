@@ -7,13 +7,13 @@
 <ul>
   <li>John Regner</li>
   <li>@color[#0084b4](@fab[twitter])@JohnDRegner</li>
-  <li>@color[#0077b5](@fab[linkedin])johnregner</li>
+  <li>@color[#0077b5](@fab[linkedin])/johnregner</li>
 </ul>
 
 @snapend
 
 @snap[east span-50]
-<img src="assets/me.jpg" height="600" />
+<img src="assets/notme.jpg" height="600" />
 @snapend
 
 ---
